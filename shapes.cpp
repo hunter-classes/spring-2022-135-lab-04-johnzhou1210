@@ -189,7 +189,7 @@ std::string checkerboard3x3(int width, int height)
   // now magnify
   // we cannot concatenate multiline strings the way we want, so we will generate the string row by row
   bool isFinalIteration = false;
-  for (int i = 1; i <= tempHeight; i++) // we use the original height here
+  for (int i = 1; i <= tempHeight; i++)
   {
     if (i == tempHeight){ isFinalIteration = true; }
     bool needShift = false;
