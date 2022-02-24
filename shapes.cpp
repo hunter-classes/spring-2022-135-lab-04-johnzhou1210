@@ -183,7 +183,7 @@ std::string checkerboard3x3(int width, int height)
          ***   ***
          ***   ***
     We also want to "trim" it to fit the original specifications
-    In this case, the original question had a width of 10 and a height of 5, so the result would look like:
+    In this case, the original input had a width of 10 and a height of 5, so the result would look like:
       ***   ***
       ***   ***
       ***   ***
