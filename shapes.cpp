@@ -169,7 +169,7 @@ std::string generate3x3TileWidthRow(int width, bool shift, int realWidth, int re
 
 std::string checkerboard3x3(int width, int height)
 {
-  /* What I did:
+  /* What I did (rather brute force):
   For example, if the input width was 10 and the height was 5,
   1) First round up the width and height to the nearest multiple of 3 to make it easier to work with (width of 10 becomes 12 and height of 5 becomes 6)
   2) The "shrunk" version would look like this after dividing the adjusted width and height by 3 (tempWidth = 4 and tempheight = 2):
