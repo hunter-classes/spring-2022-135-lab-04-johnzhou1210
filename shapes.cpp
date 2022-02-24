@@ -169,7 +169,28 @@ std::string generate3x3TileWidthRow(int width, bool shift, int realWidth, int re
 
 std::string checkerboard3x3(int width, int height)
 {
-  std::string subResult, result;
+  /* What I did:
+  For example, if the input width was 10 and the height was 5,
+  1) First round up the width and height to the nearest multiple of 3 to make it easier to work with (width of 10 becomes 12 and height of 5 becomes 6)
+  2) The "shrunk" version would look like this after dividing the adjusted width and height by 3 (tempWidth = 4 and tempheight = 2):
+       * *
+        * *
+  3) Then we "magnify" the shrunk version back to its original scale which would look like:
+      ***   ***
+      ***   ***
+      ***   ***
+         ***   ***
+         ***   ***
+         ***   ***
+    We also want to "trim" it to fit the original specifications
+    In this case, the original question had a width of 10 and a height of 5, so the result would look like:
+      ***   ***
+      ***   ***
+      ***   ***
+         ***   *
+         ***   *
+  */
+  std::string result;
   // first round width and height to the nearest multiple of 3 by adding
   int tempWidth, tempHeight;
   tempWidth = width; tempHeight = height;
@@ -184,7 +205,7 @@ std::string checkerboard3x3(int width, int height)
   // std::cout << "(" << tempWidth << ", " << tempHeight << ")\n";
   // now let's dumb it down. if the width after dumbing down is three, that means that the result is 3 tiles long
   tempWidth /= 3; tempHeight /= 3;
-  subResult = checkerboard(tempWidth, tempHeight);
+  // std::string subResult = checkerboard(tempWidth, tempHeight);
   // std::cout << "width parameter was " << tempWidth << " and height parameter was " << tempHeight << ". subresult is " << subResult << std::endl;
   // now magnify
   // we cannot concatenate multiline strings the way we want, so we will generate the string row by row
